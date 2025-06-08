@@ -1,0 +1,21 @@
+def minion_game(S):
+    vowels = 'AEIOU'
+    kevin_score = 0
+    stuart_score = 0
+    length = len(S)
+
+    for i in range(length):
+        # Number of substrings starting at index i
+        score = length - i
+        
+        if S[i] in vowels:
+            kevin_score += score
+        else:
+            stuart_score += score
+
+    if kevin_score > stuart_score:
+        print("Kevin", kevin_score)
+    elif stuart_score > kevin_score:
+        print("Stuart", stuart_score)
+    else:
+        print("Draw")

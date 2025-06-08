@@ -1,0 +1,23 @@
+from itertools import combinations
+
+def calculate_probability(N, letters, K):
+    indices = list(range(N))
+    total_combinations = list(combinations(indices, K))
+    total_count = len(total_combinations)
+    
+    favorable_count = 0
+    for combo in total_combinations:
+        # Check if at least one index in combo corresponds to letter 'a'
+        if any(letters[i] == 'a' for i in combo):
+            favorable_count += 1
+
+    probability = favorable_count / total_count
+    return probability
+
+if __name__ == '__main__':
+    N = int(input())
+    letters = input().strip().split()
+    K = int(input())
+    
+    result = calculate_probability(N, letters, K)
+    print(f"{result:.4f}")
