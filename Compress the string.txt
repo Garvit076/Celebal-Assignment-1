@@ -1,0 +1,13 @@
+def solve()
+    S = input()
+    compressed_parts = []
+
+    for key, group in groupby(S)
+        count = len(list(group))
+        # Note the tuple format (count, key) as per problem statement
+        compressed_parts.append(f({count}, {key}))
+
+    print( .join(compressed_parts))
+
+if __name__ == '__main__'
+    solve()
